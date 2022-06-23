@@ -2,7 +2,7 @@ pub fn run() {
     variables();
     datatypes();
     let z = another_function(3, "Yo");
-    let func = function_as_argument(another_function);
+    let func = function_as_argument();
     println!("{}", z);
     func(32, "Bye", another_function);
 }
@@ -63,7 +63,7 @@ fn another_function(x: i32, y: &str) -> i32 {
     z
 }
 
-fn function_as_argument(func: fn(i32, &str) -> i32) -> fn(i32, &str, fn(i32, &str) -> i32) {
+fn function_as_argument() -> fn(i32, &str, fn(i32, &str) -> i32) {
     fn wrapper(x: i32, y: &str, f: fn(i32, &str) -> i32) {
         println!("\nInside 'function_as_argument'");
         let num = f(x, y);
