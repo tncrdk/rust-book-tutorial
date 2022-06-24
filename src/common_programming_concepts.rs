@@ -1,10 +1,11 @@
 pub fn run() {
-    variables();
-    datatypes();
-    let z = another_function(3, "Yo");
-    let func = function_as_argument();
-    println!("{}", z);
-    func(32, "Bye", another_function);
+    // variables();
+    // datatypes();
+    // let z = another_function(3, "Yo");
+    // let func = function_as_argument();
+    // println!("{}", z);
+    // func(32, "Bye", another_function);
+    control_flow();
 }
 
 fn variables() {
@@ -70,4 +71,34 @@ fn function_as_argument() -> fn(i32, &str, fn(i32, &str) -> i32) {
         println!("End: {}", num)
     }
     wrapper
+}
+
+fn control_flow() {
+    println!("\nUsing loop{{}}. Instead of While True-loop");
+    let mut i = 0;
+    loop {
+        i += 1;
+        if i == 10 {
+            println!("10");
+            break;
+        }
+    }
+
+    println!("\nIterate over array: ");
+    let arr = ["Hello", "Something", "HAHA", "Bye"];
+    for number in arr {
+        println!("{}", number);
+    }
+
+    println!("\nRange in for loop: ");
+    for i in 1..=10 {
+        println!("{}", i);
+    }
+
+    println!("\nWhile-loop: ");
+    let mut x = 5;
+    while x <= 8 {
+        println!("{}", x);
+        x += 1;
+    }
 }
